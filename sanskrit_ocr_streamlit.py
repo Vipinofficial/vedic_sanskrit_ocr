@@ -562,7 +562,7 @@ def main():
                         st.markdown("""
                         <div style="border: 3px solid #DAA520; border-radius: 10px; padding: 5px; background: rgba(255,248,220,0.3);">
                         """, unsafe_allow_html=True)
-                        st.image(result['image'], caption="Original Sacred Text", use_column_width=True)
+                        st.image(result['image'], caption="Original Sacred Text", use_container_width=True)
                         st.markdown("</div>", unsafe_allow_html=True)
                         
                         if show_preprocessed:
@@ -570,7 +570,7 @@ def main():
                             st.markdown("""
                             <div style="border: 2px solid #FF9933; border-radius: 10px; padding: 5px; margin-top: 10px;">
                             """, unsafe_allow_html=True)
-                            st.image(preprocessed, caption="Preprocessed", use_column_width=True)
+                           st.image(preprocessed, caption="Preprocessed", use_container_width=True)
                             st.markdown("</div>", unsafe_allow_html=True)
                     
                     with col2:

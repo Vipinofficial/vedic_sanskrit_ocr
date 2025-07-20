@@ -656,4 +656,16 @@ def main():
                         
                         # Add summary CSV
                         csv_buffer = io.StringIO()
-                        df.to_csv(csv_buffer, index=
+                        df.to_csv(csv_buffer, index=False)
+                        zip_file.writestr("summary.csv", csv_buffer.getvalue())
+                    
+                    zip_buffer.seek(0)
+                    st.download_button(
+                        label="📩 Download Package | पैकेज डाउनलोड करें",
+                        data=zip_buffer,
+                        file_name="vedic_sanskrit_texts.zip",
+                        mime="application/zip"
+                    )
+
+if __name__ == "__main__":
+    main()

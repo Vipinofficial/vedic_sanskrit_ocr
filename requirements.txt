@@ -1,61 +1,6 @@
-# requirements.txt
-streamlit>=1.28.0
-opencv-python-headless>=4.8.0
-pytesseract>=0.3.10
-Pillow>=10.0.0
-pandas>=2.0.0
-numpy>=1.24.0
-
-# packages.txt (for Streamlit Cloud deployment)
-tesseract-ocr
-tesseract-ocr-san
-libgl1-mesa-glx
-
-# setup.sh (for local deployment)
-#!/bin/bash
-echo "Installing system dependencies..."
-
-# Update package list
-sudo apt-get update
-
-# Install Tesseract OCR and Sanskrit language support
-sudo apt-get install -y tesseract-ocr tesseract-ocr-san
-
-# Install Python dependencies
-pip install -r requirements.txt
-
-echo "Setup complete! Run with: streamlit run sanskrit_ocr_app.py"
-
-# Dockerfile (for Docker deployment)
-FROM python:3.9-slim
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    tesseract-ocr \
-    tesseract-ocr-san \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender-dev \
-    libgomp1 \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set working directory
-WORKDIR /app
-
-# Copy requirements and install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy application code
-COPY sanskrit_ocr_app.py .
-
-# Expose port
-EXPOSE 8501
-
-# Health check
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
-
-# Run the application
-ENTRYPOINT ["streamlit", "run", "sanskrit_ocr_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+streamlit
+opencv-python-headless
+pytesseract
+Pillow
+pandas
+numpy

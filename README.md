@@ -51,7 +51,7 @@ pip install -r requirements.txt
 streamlit run sanskrit_ocr_streamlit.py
 
 ```
-### Setup on Windows
+### Setup on 🪟 Windows
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/vedic-sanskrit-ocr.git
@@ -69,8 +69,8 @@ pip install -r requirements.txt
 # Run the app
 streamlit run sanskrit_ocr_streamlit.py
 ```
-
-vedic-sanskrit-ocr/
+### 🗂️ File Structure
+```vedic-sanskrit-ocr/
 │
 ├── sanskrit_ocr_streamlit.py   # Main Streamlit app
 ├── requirements.txt            # Python dependencies
@@ -78,3 +78,4 @@ vedic-sanskrit-ocr/
 ├── utils/                      # Preprocessing scripts
 ├── assets/                     # Sample images and icons
 └── README.md                   # Project documentation
+```
